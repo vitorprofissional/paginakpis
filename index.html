@@ -3,102 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de KPIs</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dashboard de KPIs por Setor</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efeito de transição suave nos cards */
+        .kpi-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>KPIs para Qualquer Tipo de Negócio</h1>
-        <p>Uma visão integrada dos indicadores chave de cada setor.</p>
+<body class="bg-gray-900 text-gray-100 p-4 sm:p-6 md:p-8">
+
+    <!-- Cabeçalho Principal -->
+    <header class="text-center mb-12">
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">Dashboard de KPIs</h1>
+        <p class="text-lg text-gray-400">Uma visão integrada dos indicadores chave para cada setor do negócio.</p>
     </header>
-    <main class="kpi-grid">
-        <article class="kpi-card">
-            <h2>💰 Financeiro</h2>
-            <ul>
-                <li>Faturamento</li>
-                <li>EBITDA</li>
-                <li>Geração de Caixa Operacional</li>
-                <li>Lucro Líquido</li>
-                <li>Margem de Contribuição</li>
-                <li>Nível de Opex <small>(Operational Expenditure)</small></li>
-            </ul>
-        </article>
 
-        <article class="kpi-card">
-            <h2>📈 Vendas</h2>
-            <ul>
-                <li>Custo de Aquisição de Clientes <small>(CAC)</small></li>
-                <li>Custo por Lead <small>(CPL)</small></li>
-                <li>Ciclo Médio de Venda</li>
-                <li>Nº de Novos Clientes</li>
-                <li>Taxa de Recorrência</li>
-                <li>Ticket Médio</li>
-            </ul>
-        </article>
-        
-        <article class="kpi-card">
-            <h2>🎯 Marketing</h2>
-            <ul>
-                <li>Retorno sobre Investimento <small>(ROMI)</small></li>
-                <li>Taxa de Conversão</li>
-                <li>Tráfego do Site (por canal)</li>
-                <li>Taxa de Cliques <small>(CTR)</small></li>
-                <li>Taxa de Engajamento</li>
-                <li>Custo por Lead <small>(CPL)</small></li>
-            </ul>
-        </article>
+    <!-- Grid Responsivo para os Cards de KPI -->
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
-        <article class="kpi-card">
-            <h2>💬 Suporte ao Cliente</h2>
-            <ul>
-                <li>Satisfação do Cliente <small>(CSAT)</small></li>
-                <li>Tempo da Primeira Resposta <small>(FRT)</small></li>
-                <li>Tempo Médio de Resolução</li>
-                <li>Resolução no Primeiro Contato <small>(FCR)</small></li>
-                <li>Esforço do Cliente <small>(CES)</small></li>
-                <li>Volume de Tickets</li>
-            </ul>
-        </article>
+        <!-- Card: Financeiro -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-blue-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-blue-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">Financeiro</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">Faturamento</li>
+                    <li class="border-b border-gray-700 pb-2">EBITDA</li>
+                    <li class="border-b border-gray-700 pb-2">Geração de Caixa</li>
+                    <li class="border-b border-gray-700 pb-2">Lucro Líquido</li>
+                    <li class="border-b border-gray-700 pb-2">Margem de Contribuição</li>
+                    <li>Nível de Opex</li>
+                </ul>
+            </div>
+        </div>
 
-        <article class="kpi-card">
-            <h2>🚚 Logística</h2>
-            <ul>
-                <li>Entrega no Prazo <small>(On-Time Delivery)</small></li>
-                <li>Índice de Pedido Perfeito <small>(POI)</small></li>
-                <li>Custo de Transporte por Pedido</li>
-                <li>Acuracidade do Inventário</li>
-                <li>Tempo do Ciclo do Pedido</li>
-                <li>Taxa de Avarias e Extravios</li>
-            </ul>
-        </article>
+        <!-- Card: Vendas -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-green-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-green-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">Vendas</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">CAC <span class="text-xs text-gray-500">(Custo de Aquisição)</span></li>
+                    <li class="border-b border-gray-700 pb-2">CPL <span class="text-xs text-gray-500">(Custo por Lead)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Ciclo Médio de Venda</li>
+                    <li class="border-b border-gray-700 pb-2">Nº de Novos Clientes</li>
+                    <li class="border-b border-gray-700 pb-2">Taxa de Recorrência</li>
+                    <li>Ticket Médio</li>
+                </ul>
+            </div>
+        </div>
 
-        <article class="kpi-card">
-            <h2>👥 Recursos Humanos</h2>
-            <ul>
-                <li>Taxa de Rotatividade <small>(Turnover)</small></li>
-                <li>Taxa de Retenção de Talentos</li>
-                <li>Tempo para Contratar</li>
-                <li>Satisfação dos Funcionários <small>(eNPS)</small></li>
-                <li>Taxa de Absenteísmo</li>
-                <li>Custo por Contratação</li>
-            </ul>
-        </article>
+        <!-- Card: Marketing -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-orange-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-orange-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.636 5.636a9 9 0 0112.728 0m-12.728 0l12.728 12.728"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">Marketing</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">ROMI <span class="text-xs text-gray-500">(Retorno)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Taxa de Conversão</li>
+                    <li class="border-b border-gray-700 pb-2">Tráfego do Site</li>
+                    <li class="border-b border-gray-700 pb-2">CTR <span class="text-xs text-gray-500">(Taxa de Cliques)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Taxa de Engajamento</li>
+                    <li>Custo por Lead</li>
+                </ul>
+            </div>
+        </div>
 
-        <article class="kpi-card">
-            <h2>💻 Tecnologia</h2>
-            <ul>
-                <li>Tempo de Atividade do Sistema <small>(Uptime)</small></li>
-                <li>Tempo Médio para Resolução <small>(MTTR)</small></li>
-                <li>Incidentes de Segurança</li>
-                <li>Velocidade de Carregamento</li>
-                <li>Taxa de Adoção de Ferramentas</li>
-                <li>Conclusão de Projetos no Prazo</li>
-            </ul>
-        </article>
+        <!-- Card: Suporte ao Cliente -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-cyan-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-cyan-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h6l2-2h2l-2 2z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">Suporte</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">CSAT <span class="text-xs text-gray-500">(Satisfação)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Tempo de Resposta</li>
+                    <li class="border-b border-gray-700 pb-2">Tempo de Resolução</li>
+                    <li class="border-b border-gray-700 pb-2">Resolução no 1º Contato</li>
+                    <li class="border-b border-gray-700 pb-2">CES <span class="text-xs text-gray-500">(Esforço do Cliente)</span></li>
+                    <li>Volume de Tickets</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card: Logística -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-purple-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-purple-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-2h8zM20 8v10a1 1 0 01-1 1h-1"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">Logística</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">Entrega no Prazo</li>
+                    <li class="border-b border-gray-700 pb-2">Índice de Pedido Perfeito</li>
+                    <li class="border-b border-gray-700 pb-2">Custo de Transporte</li>
+                    <li class="border-b border-gray-700 pb-2">Acuracidade do Inventário</li>
+                    <li class="border-b border-gray-700 pb-2">Tempo do Ciclo do Pedido</li>
+                    <li>Taxa de Avarias</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card: Recursos Humanos -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-red-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-red-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">RH</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">Turnover <span class="text-xs text-gray-500">(Rotatividade)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Retenção de Talentos</li>
+                    <li class="border-b border-gray-700 pb-2">Tempo para Contratar</li>
+                    <li class="border-b border-gray-700 pb-2">eNPS <span class="text-xs text-gray-500">(Satisfação)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Taxa de Absenteísmo</li>
+                    <li>Custo por Contratação</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card: Tecnologia -->
+        <div class="kpi-card bg-gray-800 rounded-xl overflow-hidden shadow-lg border-t-4 border-indigo-500">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-indigo-500/10 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">Tecnologia</h2>
+                </div>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="border-b border-gray-700 pb-2">Uptime <span class="text-xs text-gray-500">(Disponibilidade)</span></li>
+                    <li class="border-b border-gray-700 pb-2">MTTR <span class="text-xs text-gray-500">(Tempo de Resolução)</span></li>
+                    <li class="border-b border-gray-700 pb-2">Incidentes de Segurança</li>
+                    <li class="border-b border-gray-700 pb-2">Velocidade de Carregamento</li>
+                    <li class="border-b border-gray-700 pb-2">Adoção de Ferramentas</li>
+                    <li>Projetos no Prazo</li>
+                </ul>
+            </div>
+        </div>
 
     </main>
+
 </body>
 </html>
